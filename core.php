@@ -4,11 +4,10 @@ header("Content-Type: application/json; charset=UTF-8");
 include "pdo.php";
 
 $db = new DB();
-$tbl = 'kurum';
-$dta = $db->getRows($tbl, array('where'=>array('ilid'=>'9'), 'order_by'=>'id DESC'));
+$tbl = 'tablom';
+$data = $db->getRows($tbl, array('where'=>array('ilid'=>'9'), 'order_by'=>'id DESC'));
 
-foreach ($dta as $v) {
-
+foreach ($data as $v) {
   	foreach ($v as $k1 => $v1) {
   		$v1 = mb_convert_encoding($v1, "UTF-8", "auto");
   		$a[] = "\"".$k1 ."\":\"". $v1 ."\"";
